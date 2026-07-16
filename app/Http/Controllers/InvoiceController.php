@@ -35,6 +35,15 @@ class InvoiceController extends Controller
 
     public function store(Request $request)
     {
+        $limit = config('services.freemium.limit', 30);
+        $count = $request->user()->invoices()->count();
+
+        if ($count >= $limit) {
+            return back()->withErrors([
+                'client_name' => "Free plan limit reached ({$limit} invoices). Upgrade to Pro for unlimited.",
+            ]);
+        }
+
         $validated = $request->validate([
             'client_name' => 'required|string|max:255',
             'client_email' => 'required|email|max:255',

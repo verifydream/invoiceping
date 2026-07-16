@@ -20,6 +20,11 @@ return [
 
     'resend' => [
         'key' => env('RESEND_API_KEY'),
+        'from' => env('RESEND_FROM', 'InvoicePing <onboarding@invoiceping.com>'),
+    ],
+
+    'freemium' => [
+        'limit' => (int) env('FREEMIUM_LIMIT', 30),
     ],
 
     'ses' => [
