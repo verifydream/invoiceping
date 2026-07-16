@@ -1,0 +1,10 @@
+node_modules
+vendor
+.git
+.env
+.env.*
+!.env.production
+public/build
+storage/logs/*
+storage/framework/cache/*
+storage/framework/views/*
