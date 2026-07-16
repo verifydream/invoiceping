@@ -6,6 +6,6 @@ services:
     ports:
       - "8077:8077"
     volumes:
-      - invoiceping-data:/app/database
+      - ./database:/app/database
     environment:
       - APP_ENV=production
